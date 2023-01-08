@@ -17,13 +17,13 @@ function startApplication(datas) {
     for (let unPays of datas) {
         const pays = {
             nom: unPays.name.common,
-            drapeau: unPays.flags.png
+            drapeau: unPays.flags.svg
         };
         listePays.push(pays);
     }
     randomPays = getOneCountry(listePays);
     console.log(randomPays);
-    document.querySelector("#flag").innerHTML = `<img src=${randomPays.drapeau}/>`;
+    document.querySelector("#flag").innerHTML = `<img src=${randomPays.drapeau}>`;
 }
 function getOneCountry(listePays) {
     let randomNumber = Math.floor(Math.random() * listePays.length);
