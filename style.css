@@ -1,5 +1,4 @@
 #flag, img{
-    height: 100px;
-
-    border: 3px solid yellow;
+    border: 3px solid dark;
+    width: 250px;
 }
