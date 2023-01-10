@@ -38,9 +38,13 @@ function startApplication(datas:Datas[]){
     }
     listePays.push(pays);
   }
-  randomPays = getOneCountry(listePays);
+  for(let i = 0; i<3; i++){
+    randomPays = getOneCountry(listePays);
+    console.log(randomPays)
+  }
+ /*  randomPays = getOneCountry(listePays); */
   console.log(randomPays)
-  document.querySelector("#flag")!.innerHTML =`<img src=${randomPays.drapeau}>`
+  document.querySelector("#flag")!.innerHTML =`<img src=${randomPays.drapeau} alt=${randomPays.nom}>`
 }
 function getOneCountry(listePays:Pays[]){
   let randomNumber = Math.floor(Math.random() * listePays.length);
