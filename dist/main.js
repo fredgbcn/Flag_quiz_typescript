@@ -12,7 +12,7 @@ fetch("https://restcountries.com/v3.1/all").then(function (response) {
 });
 let listePays = [];
 let randomPays;
-let threeWrongCountries = [];
+let fourAnswers;
 function startApplication(datas) {
     for (let unPays of datas) {
         const pays = {
@@ -21,23 +21,29 @@ function startApplication(datas) {
         };
         listePays.push(pays);
     }
-    for (let i = 0; i <= 3; i++) {
-        randomPays = getOneCountry(listePays);
-        threeWrongCountries.push(randomPays);
-    }
+    randomPays = getOneCountry(listePays);
     const buttons = document.querySelector('#buttons');
-    let firstCountry = threeWrongCountries[0];
-    let secondCountry = threeWrongCountries[1];
-    let thirdCountry = threeWrongCountries[2];
-    let fourthCountry = threeWrongCountries[3];
-    buttons.innerHTML = `<button type ="button" class=${firstCountry.nom}>${firstCountry.nom}</button>
-<button type ="button" class=${secondCountry.nom}>${secondCountry.nom}</button>
-<button type ="button" class=${thirdCountry.nom}>${thirdCountry.nom}</button>
-<button type ="button" class=${fourthCountry.nom}>${fourthCountry.nom}</button>
-`;
-    /* threeWrongCountries.forEach(function(e){document.querySelector('#buttons')!.innerHTML = "HEY"}) */
-    /*  randomPays = getOneCountry(listePays); */
+    let goodAnswer = randomPays.nom;
+    let firstBadAnswer = getOneCountry(listePays).nom;
+    let secondBadAnswer = getOneCountry(listePays).nom;
+    let thirdBadAnswer = getOneCountry(listePays).nom;
+    let fourAnswers = [goodAnswer, firstBadAnswer, secondBadAnswer, thirdBadAnswer];
+    console.log(fourAnswers);
+    fourAnswers = sortArray(fourAnswers);
+    console.log(fourAnswers);
+    /* buttons.innerHTML = `<button type ="button" class=${goodAnswer.nom}>${goodAnswer.nom}</button>
+    <button type ="button" class=${firstBadAnswer.nom}>${firstBadAnswer.nom}</button>
+    <button type ="button" class=${secondBadAnswer.nom}>${secondBadAnswer.nom}</button>
+    <button type ="button" class=${thirdBadAnswer.nom}>${thirdBadAnswer.nom}</button>` */
     document.querySelector("#flag").innerHTML = `<img src=${randomPays.drapeau} alt=${randomPays.nom}>`;
+}
+function sortArray(array) {
+    let randomArray = array;
+    for (var i = randomArray.length - 1; i > 1; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        [randomArray[i], randomArray[j]] = [randomArray[j], randomArray[i]]; //swap
+    }
+    return randomArray;
 }
 function getOneCountry(listePays) {
     let randomNumber = Math.floor(Math.random() * listePays.length);
