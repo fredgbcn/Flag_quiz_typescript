@@ -28,13 +28,8 @@ function startApplication(datas) {
     let secondBadAnswer = getOneCountry(listePays).nom;
     let thirdBadAnswer = getOneCountry(listePays).nom;
     let fourAnswers = [goodAnswer, firstBadAnswer, secondBadAnswer, thirdBadAnswer];
-    console.log(fourAnswers);
     fourAnswers = sortArray(fourAnswers);
-    console.log(fourAnswers);
-    /* buttons.innerHTML = `<button type ="button" class=${goodAnswer.nom}>${goodAnswer.nom}</button>
-    <button type ="button" class=${firstBadAnswer.nom}>${firstBadAnswer.nom}</button>
-    <button type ="button" class=${secondBadAnswer.nom}>${secondBadAnswer.nom}</button>
-    <button type ="button" class=${thirdBadAnswer.nom}>${thirdBadAnswer.nom}</button>` */
+    buttons.innerHTML = generateButtons(fourAnswers);
     document.querySelector("#flag").innerHTML = `<img src=${randomPays.drapeau} alt=${randomPays.nom}>`;
 }
 function sortArray(array) {
@@ -48,5 +43,21 @@ function sortArray(array) {
 function getOneCountry(listePays) {
     let randomNumber = Math.floor(Math.random() * listePays.length);
     return listePays[randomNumber];
+}
+function generateButtons(array) {
+    let buttonsHtml = "";
+    for (let name of array) {
+        buttonsHtml += `<button type ="button" onClick ="checkResponse('${name}')" class=${name}>${name}</button>`;
+    }
+    return buttonsHtml;
+}
+function checkResponse(response) {
+    const resultDiv = document.querySelector('#result');
+    if (response === randomPays.nom) {
+        resultDiv.innerHTML = `<div>Excellent ! ${response} is the good answer`;
+    }
+    else {
+        resultDiv.innerHTML = `<div>That's wrong ... ${response} is not the good answer`;
+    }
 }
 //# sourceMappingURL=main.js.map
