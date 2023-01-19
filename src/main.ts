@@ -66,6 +66,7 @@ function sortArray(array:any[]){
     var j = Math.floor(Math.random()* (i + 1));
     [randomArray[i], randomArray[j]] = [randomArray[j], randomArray[i]]; //swap
   }
+
   return randomArray;
 } 
 function getOneCountry(listePays:Pays[]){
