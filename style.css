@@ -1,4 +1,43 @@
+body{
+    font-family: cursive;
+    text-align: center;
+}
 #flag, img{
     border: 3px solid dark;
     width: 250px;
+    margin:auto;
+}
+
+#answers-buttons{
+    min-width: 120px;
+    width : auto;
+    height: 60px;
+    color: white;
+    background-color: rgb(184, 96, 130);
+    border-radius: 10px;
+    font-weight: bold;
+    
+}
+h1{
+   color: rgb(184, 96, 130);
+}
+img{
+    margin:auto;
+}
+#result p{
+    background-color: rgb(252, 220, 244);
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(184, 96, 130);
+    font-weight: bold;
+}
+#skip button{
+
+    width : 90px;
+    height: 60px;
+    color: white;
+    background-color: rgb(13, 204, 13);
+    border-radius: 10px;
+    font-weight: bold;
+    
 }

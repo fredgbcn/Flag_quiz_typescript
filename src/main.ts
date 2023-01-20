@@ -73,7 +73,7 @@ function getOneCountry(listePays:Pays[]){
 function generateButtons(array: string[]) : string{
   let buttonsHtml = "";
   for(let name of array){
-    buttonsHtml += `<button type ="button" onClick ="checkResponse('${name}')" class=${name}>${name}</button>`
+    buttonsHtml += `<button id ="answers-buttons" type ="button" onClick ="checkResponse('${name}')" class=${name}>${name}</button>`
   }
   return buttonsHtml;
 }
@@ -81,10 +81,10 @@ function checkResponse(response: string) : void{
   const skipDiv =   document.querySelector("#skip")! as HTMLDivElement;
   const resultDiv = document.querySelector('#result')! as HTMLDivElement;
 if(response === randomPays.nom){
-  resultDiv.innerHTML =`<div>Excellent ! ${response} is the good answer</div>`;
-  skipDiv.innerHTML = `<button type ="button" onClick ="location.reload()">Skip</button>`;
+  resultDiv.innerHTML =`<p>That's it ! ${response} is the good answer</p>`;
+  skipDiv.innerHTML = `<button  type ="button" onClick ="location.reload()">Skip</button>`;
 }else{
-  resultDiv.innerHTML =`<div>That's wrong ... ${response} is not the good answer</div>`;
+  resultDiv.innerHTML =`<p>That's wrong ... ${response} is not the good answer</p>`;
   skipDiv.innerHTML = `<button type ="button" onClick ="location.reload()">Skip</button>`;
 }
 }
