@@ -78,10 +78,13 @@ function generateButtons(array: string[]) : string{
   return buttonsHtml;
 }
 function checkResponse(response: string) : void{
+  const skipDiv =   document.querySelector("#skip")! as HTMLDivElement;
   const resultDiv = document.querySelector('#result')! as HTMLDivElement;
 if(response === randomPays.nom){
-  resultDiv.innerHTML =`<div>Excellent ! ${response} is the good answer`
+  resultDiv.innerHTML =`<div>Excellent ! ${response} is the good answer</div>`;
+  skipDiv.innerHTML = `<button type ="button" onClick ="location.reload()">Skip</button>`;
 }else{
-  resultDiv.innerHTML =`<div>That's wrong ... ${response} is not the good answer`
+  resultDiv.innerHTML =`<div>That's wrong ... ${response} is not the good answer</div>`;
+  skipDiv.innerHTML = `<button type ="button" onClick ="location.reload()">Skip</button>`;
 }
 }

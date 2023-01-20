@@ -52,12 +52,15 @@ function generateButtons(array) {
     return buttonsHtml;
 }
 function checkResponse(response) {
+    const skipDiv = document.querySelector("#skip");
     const resultDiv = document.querySelector('#result');
     if (response === randomPays.nom) {
-        resultDiv.innerHTML = `<div>Excellent ! ${response} is the good answer`;
+        resultDiv.innerHTML = `<div>Excellent ! ${response} is the good answer</div>`;
+        skipDiv.innerHTML = `<button type ="button" onClick ="location.reload()">Skip</button>`;
     }
     else {
-        resultDiv.innerHTML = `<div>That's wrong ... ${response} is not the good answer`;
+        resultDiv.innerHTML = `<div>That's wrong ... ${response} is not the good answer</div>`;
+        skipDiv.innerHTML = `<button type ="button" onClick ="location.reload()">Skip</button>`;
     }
 }
 //# sourceMappingURL=main.js.map
